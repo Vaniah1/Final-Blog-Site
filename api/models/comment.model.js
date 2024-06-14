@@ -22,7 +22,17 @@ const commentSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    follows: {
+          type: Array,
+          default: [],
+        },
+        
+    numberOfFollows: {
+      type: Number,
+      default: 0,
+    },
   },
+
   { timestamps: true }
 );
 

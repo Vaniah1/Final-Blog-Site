@@ -8,6 +8,7 @@ import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import cors from "cors"
+import { verifyToken } from './utils/verifyUser.js';
 
 dotenv.config();
 
@@ -41,6 +42,20 @@ app.use(express.static(path.join(__dirname, '/client/dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
+app.get("/new-notification", verifyToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const hasNewNotification = await Notification.exists({
+      notification_for: userId,
+      seen: false,
+      user: { $ne: userId },
+    });
+    res.status(200).json({ new_notification_available: hasNewNotification });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "An error occurred" });
+  }
 });
 
 app.use((err, req, res, next) => {

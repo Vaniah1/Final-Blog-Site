@@ -1,7 +1,7 @@
 import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaBell, FaMoon, FaSun } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import { signoutSuccess } from "../redux/user/userSlice";
@@ -83,14 +83,17 @@ export default function Header() {
         </>
       ) : (
         <Link to="/sign-in">
-          <Button gradientDuoTone="purpleToBlue" outline>
+          <Button className="font-bold bg-light" outline>
             Sign In
           </Button>
         </Link>
       )}
-      <div>
-        <Link className="text-xl font-bold text-white whitespace-nowrap" to="/">
-          WAGZ
+      <div className="p-4 border-gray-200 rounded ">
+        <Link
+          className="text-3xl font-bold text-white whitespace-nowrap"
+          to="/"
+        >
+          Socia<span className="text-light">lize</span>
         </Link>
       </div>
       <Navbar.Collapse>
@@ -130,9 +133,14 @@ export default function Header() {
           rightIcon={AiOutlineSearch}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="hidden opacity-70 md:inline"
+          className="hidden border-none opacity-70 md:inline"
         />
       </form>
+      <Button>
+        <Link to="/dashboard?tab=notifications">
+          <FaBell className="text-2xl text-white" />
+        </Link>
+      </Button>
 
       <Button
         onClick={handleSubmit}

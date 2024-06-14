@@ -146,7 +146,7 @@ export default function Search() {
               <option value="education">Education</option>
             </Select>
           </div>
-          <Button type="submit" outline gradientDuoTone="purpleToPink">
+          <Button type="submit" outline className="bg-light">
             Apply Filters
           </Button>
         </form>
@@ -166,7 +166,7 @@ export default function Search() {
           {showMore && (
             <button
               onClick={handleShowMore}
-              className="w-full text-lg text-teal-500 hover:underline p-7"
+              className="w-full text-lg text-blog hover:underline p-7"
             >
               Show More
             </button>

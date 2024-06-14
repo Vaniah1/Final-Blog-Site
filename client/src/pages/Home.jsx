@@ -14,8 +14,13 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <div className="flex flex-col items-center justify-center w-full gap-3 px-3 mx-auto sm:w-full p-28 ">
-        <img src="/image.png" width="full" alt="blog" />
+      <div className="flex flex-col items-center justify-center w-full gap-2 p-10 px-8 mx-auto sm:w-full ">
+        <img
+          src="/image.png"
+          width="full"
+          alt="blog"
+          className=" hover:opacity-75 hover:filter hover:blur-sm"
+        />
       </div>
 
       <div className="flex flex-col w-full gap-8 p-3 mx-auto py-7 bg-none ">
@@ -27,9 +32,10 @@ export default function Home() {
                 <PostCard key={post._id} post={post} />
               ))}
             </div>
+
             <Link
               to={"/search"}
-              className="text-lg text-center text-teal-500 hover:underline"
+              className="text-lg text-center text- hover:underline"
             >
               View all posts
             </Link>

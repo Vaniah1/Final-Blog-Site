@@ -10,7 +10,8 @@ export default {
       "light": "#D7A2A2",
       "blog":"#A25A5A",
       "card": "#D9D9D9", 
-      "layout": "#DFDDE5"
+      "layout": "#DFDDE5",
+      "acc": "#A2D7A2"
     },
     extend: {},
   },

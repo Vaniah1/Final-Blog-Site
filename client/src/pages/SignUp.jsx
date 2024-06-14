@@ -1,8 +1,9 @@
-import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
+import { Button, Label, Spinner, TextInput, Toast } from "flowbite-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
 import axios from "axios";
+import { HiExclamation } from "react-icons/hi";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -38,20 +39,16 @@ export default function SignUp() {
   };
   return (
     <div className="min-h-screen mt-20">
-      <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
+      <div className="block max-w-3xl gap-10 p-3 mx-auto md:flex-row md:items-center">
         {/* left */}
         <div className="flex-1">
-          <Link to="/" className="font-bold dark:text-white text-4xl">
-            Blog
+          <Link to="/" className="text-4xl font-bold dark:text-white">
+            Socia<span className="text-light">lize</span>
           </Link>
-          <p className="text-sm mt-5">
-            This is a demo project. You can sign up with your email and password
-            or with Google.
-          </p>
         </div>
         {/* right */}
 
-        <div className="flex-1">
+        <div className="flex-1 mt-10">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div>
               <Label value="Your username" />
@@ -80,11 +77,7 @@ export default function SignUp() {
                 onChange={handleChange}
               />
             </div>
-            <Button
-              gradientDuoTone="purpleToPink"
-              type="submit"
-              disabled={loading}
-            >
+            <Button className="bg-blog" type="submit" disabled={loading}>
               {loading ? (
                 <>
                   <Spinner size="sm" />
@@ -96,16 +89,20 @@ export default function SignUp() {
             </Button>
             <OAuth />
           </form>
-          <div className="flex gap-2 text-sm mt-5">
+          <div className="flex gap-2 mt-5 text-sm">
             <span>Have an account?</span>
             <Link to="/sign-in" className="text-blue-500">
               Sign In
             </Link>
           </div>
           {errorMessage && (
-            <Alert className="mt-5" color="failure">
+            <Toast className="max-w-md mt-5">
+              <div className="inline-flex items-center justify-center w-8 h-8 mr-2 text-orange-500 bg-orange-100 rounded-lg shrink-0 dark:bg-orange-700 dark:text-orange-200">
+                <HiExclamation className="w-5 h-5 " />
+              </div>
               {errorMessage}
-            </Alert>
+              <Toast.Toggle />
+            </Toast>
           )}
         </div>
       </div>
