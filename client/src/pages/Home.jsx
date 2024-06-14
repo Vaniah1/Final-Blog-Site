@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
-import { Avatar } from "flowbite-react";
-import { useSelector } from "react-redux";
 export default function Home() {
   const [posts, setPosts] = useState([]);
-  const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await fetch("/api/post/getPosts");
@@ -20,12 +17,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center w-full gap-3 px-3 mx-auto sm:w-full p-28 ">
         <img src="/image.png" width="full" alt="blog" />
       </div>
-      <Avatar
-        size="lg"
-        status="online"
-        img={currentUser.profilePicture}
-        rounded
-      />
+
       <div className="flex flex-col w-full gap-8 p-3 mx-auto py-7 bg-none ">
         {posts && posts.length > 0 && (
           <div className="flex flex-col gap-6">

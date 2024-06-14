@@ -7,6 +7,7 @@ import postRoutes from './routes/post.route.js';
 import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import cors from "cors"
 
 dotenv.config();
 
@@ -24,10 +25,11 @@ const __dirname = path.resolve();
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 app.use(cookieParser());
 
-app.listen(3001, () => {
-  console.log('Server is running on port 3001!');
+app.listen(5000, () => {
+  console.log('Server is running on port 5000!');
 });
 
 app.use('/api/user', userRoutes);
