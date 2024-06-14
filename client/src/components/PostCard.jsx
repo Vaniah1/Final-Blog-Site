@@ -15,7 +15,7 @@ export default function PostCard({ post }) {
   };
 
   return (
-    <div className="group relative w-full  bg-blog hover:border-2 h-[480px] overflow-hidden rounded-2xl sm:w-[430px] transition-all">
+    <div className="group relative w-full  bg-blog hover:border-2 h-[480px]  overflow-hidden rounded-2xl sm:w-[430px] transition-all">
       <div className="flex gap-2 p-3 ">
         <Link to="/dashboard?tab=profile">
           <Avatar rounded />

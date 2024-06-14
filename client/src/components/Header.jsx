@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import { signoutSuccess } from "../redux/user/userSlice";
 import { useEffect, useState } from "react";
+import { GiQuill } from "react-icons/gi";
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -49,7 +50,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className="border-b-4 bg-blog sm:text-xl dark:bg-blog">
+    <Navbar className="sticky top-0 z-50 border-b-4 bg-blog sm:text-xl dark:bg-blog">
       {currentUser ? (
         <>
           <Navbar.Toggle className="text-white dark:text-white bg-none " />
@@ -90,9 +91,10 @@ export default function Header() {
       )}
       <div className="p-4 border-gray-200 rounded ">
         <Link
-          className="text-3xl font-bold text-white whitespace-nowrap"
+          className="flex text-3xl font-bold text-white whitespace-nowrap"
           to="/"
         >
+          <GiQuill />
           Socia<span className="text-light">lize</span>
         </Link>
       </div>

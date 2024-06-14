@@ -14,10 +14,11 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <div className="flex flex-col items-center justify-center w-full gap-2 p-10 px-8 mx-auto sm:w-full ">
+      <div className="relative flex flex-col items-center justify-center w-full h-full px-2 py-3 mx-auto md:h-30 ">
         <img
           src="/image.png"
           width="full"
+          height="500px"
           alt="blog"
           className=" hover:opacity-75 hover:filter hover:blur-sm"
         />
