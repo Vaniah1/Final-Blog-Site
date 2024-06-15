@@ -38,24 +38,33 @@ export default function FooterCom() {
             </Link>
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
               <li>
-                <Link to="/" className="mr-4 hover:underline md:mr-6 ">
+                <Link
+                  to="/"
+                  className="mr-4 hover:underline md:mr-6 dark:text-black"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="mr-4 hover:underline md:mr-6 ">
+                <Link
+                  to="/about"
+                  className="mr-4 hover:underline md:mr-6 dark:text-black "
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/search" className="mr-4 hover:underline md:mr-6 ">
+                <Link
+                  to="/search"
+                  className="mr-4 hover:underline md:mr-6 dark:text-black "
+                >
                   Search
                 </Link>
               </li>
               <li>
                 <Link
                   to="/create-post"
-                  className="mr-4 hover:underline md:mr-6 "
+                  className="mr-4 hover:underline md:mr-6 dark:text-black "
                 >
                   Write
                 </Link>
@@ -63,7 +72,7 @@ export default function FooterCom() {
             </ul>
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="block text-sm text-gray-500 sm:text-center dark:text-black">
             © 2024{" "}
             <Link to="/" className="hover:underline">
               Socialize™

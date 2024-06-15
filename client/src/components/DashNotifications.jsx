@@ -33,7 +33,7 @@ const DashNotifications = () => {
   }, []);
 
   return (
-    <div className="w-full p-6 bg-white rounded-lg shadow-md">
+    <div className="w-full p-6 rounded-lg shadow-md">
       <h2 className="mb-4 text-3xl font-semibold drop-shadow-sm">
         Notifications
       </h2>
