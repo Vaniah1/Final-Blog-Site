@@ -85,8 +85,10 @@ export default function CreatePost() {
   };
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center my-7">Feeling Inspired?</h1>
-      <div className="max-w-3xl min-h-screen p-3 mx-auto">
+      <h1 className="text-5xl font-bold text-center my-7 only-of-type">
+        Write Blog Here
+      </h1>
+      <div className="max-w-4xl min-h-screen p-3 mx-auto">
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col justify-between gap-4 sm:flex-row">
             <TextInput
@@ -118,6 +120,7 @@ export default function CreatePost() {
               <option value="kids">Kids</option>
               <option value="fashion and design">Fashion and Design</option>
               <option value="education">Education</option>
+              <option value="politics">Poilitics</option>
             </Select>
           </div>
           <div className="flex items-center justify-between gap-4 p-3 border-4 border-dotted border-blog">

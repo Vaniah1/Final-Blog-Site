@@ -1,24 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import profile from "/png-transparent-computer-icons-user-profile-user-avatar-blue-heroes-electric-blue-removebg-preview (1).png";
 
 export default function PostCard({ post }) {
-  const [following, setFollowing] = useState(false);
-  const [followCount, setFollowCount] = useState(post.followCount || 0);
-
-  const handleFollow = async () => {
-    try {
-      setFollowing(!following);
-      setFollowCount(following ? followCount - 1 : followCount + 1);
-    } catch (error) {
-      console.error("Error following user:", error);
-    }
-  };
-
   return (
     <div className="group relative w-full  bg-blog hover:border-2 h-[480px]  overflow-hidden rounded-2xl sm:w-[430px] transition-all">
       <div className="flex gap-2 p-3 ">
         <Link to="/dashboard?tab=profile">
-          <Avatar rounded />
+          <Avatar bordered rounded img={profile} />
         </Link>
 
         <p className="text-lg font-bold text-white line-clamp-2">User</p>
@@ -27,14 +15,8 @@ export default function PostCard({ post }) {
           <Rating.Star />
           <Rating.Star />
           <Rating.Star />
-          <Rating.Star filled={false} />
+          <Rating.Star />
         </Rating>
-        <button
-          onClick={handleFollow}
-          className="p-3 ml-auto font-bold bg-white rounded-md"
-        >
-          {following ? "Unfollow" : "Follow"} ({followCount})
-        </button>
       </div>
 
       <div className="flex flex-col gap-2 p-3">

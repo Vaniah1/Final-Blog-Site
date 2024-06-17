@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import cors from "cors"
 import { verifyToken } from './utils/verifyUser.js';
+import axios from "axios"
 
 dotenv.config();
 
@@ -28,6 +29,42 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 app.use(cookieParser());
+app.post('/generate', async (req, res) => {
+  const inputText = req.body.input;
+
+  if (!inputText) {
+    return res.status(400).json({ error: 'Input text is required' });
+  }
+
+  const payload = {
+    inputs: `[INST] <<SYS>> You are a helpful chatbot that assists in creating blogs. When someone greets you, respond with 'Hello, how can I help you with your blog today?'. For other inputs, provide relevant advice or suggestions for creating blog content. <<SYS>> ${inputText} [/INST]`,
+    parameters: {
+      max_new_tokens: 256,
+      top_p: 0.9,
+      temperature: 0.7,
+    },
+  };
+
+  try {
+    const response = await axios.post(
+      process.env.PINECONE_API_HOST,
+      payload,
+      {
+        headers: {
+          Authorization: `API-Key ${process.env.PINECONE_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    // Assuming the response structure may need adjustment based on Pinecone's actual response
+    const generatedText = response.data.generated_text.split('[/INST] ')[1];
+    res.json({ response: generatedText });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Error generating text' });
+  }
+})
 
 app.listen(5000, () => {
   console.log('Server is running on port 5000!');

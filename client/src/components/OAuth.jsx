@@ -36,7 +36,7 @@ export default function OAuth() {
   return (
     <Button
       type="button"
-      className="bg-blog"
+      className="bg-light"
       outline
       onClick={handleGoogleClick}
     >

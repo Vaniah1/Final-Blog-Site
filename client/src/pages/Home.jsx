@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <div className="relative flex flex-col items-center justify-center w-full h-[480px]">
-        <div className="absolute top-0 left-0 w-full h-[480px] bg-gray-800 opacity-75">
+        <div className="absolute top-0 left-0 w-full h-[480px] bg-black opacity-50">
           {" "}
           <img
             src="/image.png"

@@ -84,14 +84,14 @@ export default function Header() {
         </>
       ) : (
         <Link to="/sign-in">
-          <Button className="font-bold bg-light" outline>
+          <Button className="font-bold text-gray-200 bg-light" outline>
             Sign In
           </Button>
         </Link>
       )}
       <div className="p-4 border-gray-200 rounded ">
         <Link
-          className="flex text-3xl font-bold text-white whitespace-nowrap"
+          className="flex text-3xl font-bold  text-white whitespace-nowrap"
           to="/"
         >
           <GiQuill />
@@ -100,22 +100,31 @@ export default function Header() {
       </div>
       <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={"div"}>
-          <Link className="inline text-sm font-bold " to="/">
+          <Link className="inline text-sm font-bold text-gray-200" to="/">
             Home
           </Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/dashboard?tab=dash"} as={"div"}>
-          <Link className="inline text-sm font-bold " to="/dashboard?tab=dash">
+          <Link
+            className="inline text-sm font-bold text-gray-200  "
+            to="/dashboard?tab=dash"
+          >
             Dashboard
           </Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/create-post"} as={"div"}>
-          <Link className="inline text-sm font-bold" to="/create-post">
+          <Link
+            className="inline text-sm font-bold text-gray-200 "
+            to="/create-post"
+          >
             Editor
           </Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/about"} as={"div"}>
-          <Link className="inline text-sm font-bold " to="/about">
+          <Link
+            className="inline text-sm font-bold text-gray-200  "
+            to="/about"
+          >
             About
           </Link>
         </Navbar.Link>
